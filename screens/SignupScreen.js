@@ -18,11 +18,7 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Image
-        source={require('../assets/rn-social-logo.png')}
-        style={styles.logo}
-      />
-      <Text style={styles.text}>RN Social App</Text>
+      <Text style={styles.text}>Create an account</Text>
 
       <FormInput
         labelValue={email}
@@ -40,13 +36,24 @@ const LoginScreen = ({navigation}) => {
       />
 
       <FormButton
-        buttonTitle="Sign In"
-        onPress={() => alert('Sign In Clicked!')}
+        buttonTitle="Sign Up"
+        onPress={() => alert('Sign Up Clicked!')}
       />
 
-      <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
-        <Text style={styles.navButtonText}>Forgot Password?</Text>
-      </TouchableOpacity>
+      <View style={styles.textPrivate}>
+        <Text style={styles.color_textPrivate}>
+          By registering, you confirm that you accept our
+        </Text>
+        <TouchableOpacity>
+          <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
+            Terms of service
+          </Text>
+        </TouchableOpacity>
+        <Text style={styles.color_textPrivate}> and </Text>
+        <Text style={[styles.color_textPrivate, {color: '#e88832'}]}>
+          Privacy Policy
+        </Text>
+      </View>
 
       <SocialButton
         buttonTitle="Sign In with Facebook"
@@ -66,9 +73,7 @@ const LoginScreen = ({navigation}) => {
       <TouchableOpacity
         style={styles.forgotButton}
         onPress={() => navigation.navigate('Signup')}>
-        <Text style={styles.navButtonText}>
-          Don't have an acount? Create here
-        </Text>
+        <Text style={styles.navButtonText}>Have an account? Sign In</Text>
       </TouchableOpacity>
     </View>
   );
@@ -84,11 +89,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  logo: {
-    height: 150,
-    width: 150,
-    resizeMode: 'cover',
-  },
   text: {
     fontSize: 28,
     marginBottom: 10,
@@ -97,12 +97,21 @@ const styles = StyleSheet.create({
   navButton: {
     marginTop: 15,
   },
-  forgotButton: {
-    marginVertical: 35,
-  },
+
   navButtonText: {
     fontSize: 18,
     fontWeight: '500',
     color: '#2e64e5',
+  },
+  textPrivate: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginVertical: 35,
+    justifyContent: 'center',
+  },
+  color_textPrivate: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: 'grey',
   },
 });
