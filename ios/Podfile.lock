@@ -355,7 +355,9 @@ PODS:
     - React-Core
     - React-RCTImage
     - React-RCTText
-  - RNGestureHandler (2.3.2):
+  - RNCAsyncStorage (1.17.0):
+    - React-Core
+  - RNGestureHandler (2.1.1):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -417,6 +419,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - ReactNativeNavigation (from `../node_modules/react-native-navigation`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -501,6 +504,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   ReactNativeNavigation:
     :path: "../node_modules/react-native-navigation"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-async-storage/async-storage"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   Yoga:
@@ -552,7 +557,8 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: a9d3c82ddf7ffdad9fbe6a81c6d6f8c06385464d
   ReactCommon: 07d0c460b9ba9af3eaf1b8f5abe7daaad28c9c4e
   ReactNativeNavigation: b3344828dfe4a696425cbc00d61e05c4c0150f98
-  RNGestureHandler: 6e757e487a4834e7280e98e9bac66d2d9c575e9c
+  RNCAsyncStorage: 4efdcd2f7378421b29467c9de58f43552b60cf5b
+  RNGestureHandler: e1ad51d31a580755079d5124d3ab66f0fcaa8311
   Yoga: d6b6a80659aa3e91aaba01d0012e7edcbedcbecd
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
