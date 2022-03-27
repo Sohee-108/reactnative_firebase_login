@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import AsyncStorage from '@react-native-community/async-storage';
+import {GoogleSignin} from '@react-native-community/google-signin';
 
 import LoginScreen from '../screens/LoginScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
@@ -20,6 +21,10 @@ const AuthStack = () => {
       } else {
         setIsFirstLaunch(false);
       }
+    });
+    GoogleSignin.configure({
+      webClientId:
+        '949817138439-q7fkej1hmafol60orr89gor9lr0gdnp2.apps.googleusercontent.com',
     });
   }, []);
 

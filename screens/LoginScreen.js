@@ -1,12 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {
-  TouchableOpacity,
-  View,
-  Text,
-  Button,
-  Image,
-  StyleSheet,
-} from 'react-native';
+import {TouchableOpacity, View, Text, Image, StyleSheet} from 'react-native';
 
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
@@ -17,7 +10,7 @@ const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const {login} = useContext(AuthContext);
+  const {login, googleLogin} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -56,14 +49,14 @@ const LoginScreen = ({navigation}) => {
         btnType="facebook"
         color="#4867aa"
         backgroundColor="#e6eaf4"
-        onpress={() => {}}
+        onPress={() => {}}
       />
       <SocialButton
         buttonTitle="Sign In with Google"
         btnType="google"
         color="#de4d41"
         backgroundColor="#f5e7ea"
-        onpress={() => {}}
+        onPress={() => googleLogin()}
       />
 
       <TouchableOpacity
