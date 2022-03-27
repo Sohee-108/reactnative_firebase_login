@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   TouchableOpacity,
   View,
@@ -11,10 +11,14 @@ import {
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import SocialButton from '../components/SocialButton';
+import {AuthContext} from '../navigation/AuthProvider';
 
-const LoginScreen = ({navigation}) => {
+const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
+
+  const {register} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -34,10 +38,17 @@ const LoginScreen = ({navigation}) => {
         placeholderText="Password"
         secureTextEntry={true}
       />
+      <FormInput
+        labelValue={confirmPassword}
+        onChangeText={userPassword => setConfirmPassword(userPassword)}
+        placeholderText="Confirm Password"
+        iconType="lock"
+        secureTextEntry={true}
+      />
 
       <FormButton
         buttonTitle="Sign Up"
-        onPress={() => alert('Sign Up Clicked!')}
+        onPress={() => register(email, password)}
       />
 
       <View style={styles.textPrivate}>
@@ -72,14 +83,14 @@ const LoginScreen = ({navigation}) => {
 
       <TouchableOpacity
         style={styles.forgotButton}
-        onPress={() => navigation.navigate('Signup')}>
+        onPress={() => navigation.navigate('Login')}>
         <Text style={styles.navButtonText}>Have an account? Sign In</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;
 
 const styles = StyleSheet.create({
   container: {
