@@ -1296,6 +1296,11 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.1.0.tgz#e42b1bef12d2415411519fd528e64b593b1363dc"
   integrity sha512-W/J0fNYVO01tioHjvYWQ9m6RgndVtbElzYozBq1ZPrHO/iCzlqoySHl4gO/fpCl9QEFjvJfjPgtPMTMlsoq5DQ==
 
+"@react-native-community/google-signin@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/google-signin/-/google-signin-5.0.0.tgz#d1d89c697cc214c10017fa283817e84bd03b2d76"
+  integrity sha512-MvFHImmtlmE1kJZgZ9XaULm/OBuQ/AQWOCPr3NzYTUv2cCqyGwfFrealo5PS/fuL/InCGcfqK1k/1dZ+67Hjmg==
+
 "@react-native-firebase/app@^14.7.0":
   version "14.7.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-14.7.0.tgz#a12f120c2c6a437284a30391cb16670422d48a7e"
@@ -1314,11 +1319,6 @@
   version "14.7.0"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-14.7.0.tgz#d79f6c6f4aa96111d8f20f7643bfcfca2dc17fc0"
   integrity sha512-vYmXJYs3VI3Ur4N9BFdls+kwFaQ0+hG5JQe/QA1L/o3UP0ho+oqZ5wyCnpA4uXyQwTgeWUukoedbI+iK0AHpWg==
-
-"@react-native-google-signin/google-signin@^7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-7.2.2.tgz#29e416d5c8484b52de3dc97f982f04b0083f27fe"
-  integrity sha512-FqSJAEYz+SNeIOyokFX3e7nbBgK0js/Hye0YNY+cV0Qf1NxKw1vRt2MQB3kfuVWFCb+OSovgQCl6W8dhYvsblw==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
