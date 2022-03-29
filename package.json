@@ -10,7 +10,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.17.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/google-signin": "^5.0.0",
     "@react-native-firebase/app": "^14.7.0",
@@ -20,6 +19,7 @@
     "@react-navigation/stack": "^6.1.1",
     "react": "17.0.2",
     "react-native": "0.67.4",
+    "react-native-fbsdk": "^3.0.0",
     "react-native-gesture-handler": "2.1.1",
     "react-native-navigation": "^7.26.0",
     "react-native-onboarding-swiper": "^1.2.0",
