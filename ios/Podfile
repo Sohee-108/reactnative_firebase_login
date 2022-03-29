@@ -11,6 +11,8 @@ target 'firebasetest' do
     # to enable hermes on iOS, change `false` to `true` and then install pods
     :hermes_enabled => false
   )
+  
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons' #추가
 
   target 'firebasetestTests' do
     inherit! :complete
