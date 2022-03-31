@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {AuthContext} from '../navigation/AuthProvider';
+import moment from 'moment';
 
 import {
   Card,
@@ -16,7 +18,9 @@ import {
   Divider,
 } from '../styles/FeedStyles';
 
-const PostCard = ({item}) => {
+const PostCard = ({item, onDelete}) => {
+  const {user} = useContext(AuthContext);
+
   if (item.likes == 1) {
     likeText = '1 Like';
   } else if (item.likes > 1) {
@@ -39,7 +43,7 @@ const PostCard = ({item}) => {
         <UserImg source={{uri: item.userImg}} />
         <UserInfoText>
           <UserName>{item.userName}</UserName>
-          <PostTime>{item.postTime.toString()}</PostTime>
+          <PostTime>{moment(item.postTime.toDate()).fromNow()}</PostTime>
         </UserInfoText>
       </UserInfo>
       <PostText>{item.post}</PostText>
@@ -57,9 +61,11 @@ const PostCard = ({item}) => {
           <Ionicons name="md-chatbubble-outline" size={25} />
           <InteractionText>{commentText}</InteractionText>
         </Interaction>
-        <Interaction onPress={() => {}}>
-          <Ionicons name="md-trash-bin" size={25} />
-        </Interaction>
+        {user.uid == item.userId ? (
+          <Interaction onPress={() => onDelete(item.id)}>
+            <Ionicons name="md-trash-bin" size={25} />
+          </Interaction>
+        ) : null}
       </InteractionWrapper>
     </Card>
   );

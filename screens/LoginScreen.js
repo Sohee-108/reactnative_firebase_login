@@ -1,5 +1,12 @@
 import React, {useState, useContext} from 'react';
-import {TouchableOpacity, View, Text, Image, StyleSheet} from 'react-native';
+import {
+  TouchableOpacity,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+} from 'react-native';
 
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
@@ -13,7 +20,7 @@ const LoginScreen = ({navigation}) => {
   const {login, googleLogin, fbLogin} = useContext(AuthContext);
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Image
         source={require('../assets/rn-social-logo.png')}
         style={styles.logo}
@@ -66,7 +73,7 @@ const LoginScreen = ({navigation}) => {
           Don't have an acount? Create here
         </Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
