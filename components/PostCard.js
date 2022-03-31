@@ -1,4 +1,6 @@
 import React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {
   Card,
   UserInfo,
@@ -34,21 +36,29 @@ const PostCard = ({item}) => {
   return (
     <Card>
       <UserInfo>
-        <UserImg source={item.userImg} />
+        <UserImg source={{uri: item.userImg}} />
         <UserInfoText>
           <UserName>{item.userName}</UserName>
-          <PostTime>{item.postTime}</PostTime>
+          <PostTime>{item.postTime.toString()}</PostTime>
         </UserInfoText>
       </UserInfo>
       <PostText>{item.post}</PostText>
-      {item.postImg != 'none' ? <PostImg source={item.postImg} /> : <Divider />}
+      {item.postImg != null ? (
+        <PostImg source={{uri: item.postImg}} />
+      ) : (
+        <Divider />
+      )}
       {/* <PostImg source={require('../assets/posts/post-img-2.jpg')} /> */}
       <InteractionWrapper>
         <Interaction active={item.liked}>
           <InteractionText active={item.liked}>{likeText}</InteractionText>
         </Interaction>
         <Interaction>
+          <Ionicons name="md-chatbubble-outline" size={25} />
           <InteractionText>{commentText}</InteractionText>
+        </Interaction>
+        <Interaction onPress={() => {}}>
+          <Ionicons name="md-trash-bin" size={25} />
         </Interaction>
       </InteractionWrapper>
     </Card>
