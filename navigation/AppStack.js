@@ -87,13 +87,7 @@ const FeedStack = ({navigation}) => (
 
 const MessageStack = ({navigation}) => (
   <Stack.Navigator>
-    <Stack.Screen
-      name="Messages"
-      component={MessagesScreen}
-      options={{
-        headerShown: false,
-      }}
-    />
+    <Stack.Screen name="Messages" component={MessagesScreen} />
     <Stack.Screen
       name="Chat"
       component={ChatScreen}
@@ -107,13 +101,7 @@ const MessageStack = ({navigation}) => (
 
 const ProfileStack = ({navigation}) => (
   <Stack.Navigator>
-    <Stack.Screen
-      name="Profile"
-      component={ProfileScreen}
-      options={{
-        headerShown: false,
-      }}
-    />
+    <Stack.Screen name="Profile" component={ProfileScreen} />
     <Stack.Screen
       name="EditProfile"
       component={EditProfileScreen}
