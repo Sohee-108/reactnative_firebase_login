@@ -17,6 +17,7 @@ import {
   Interaction,
   Divider,
 } from '../styles/FeedStyles';
+import ProgressiveImage from './ProgressiveImage';
 
 const PostCard = ({item, onDelete}) => {
   const {user} = useContext(AuthContext);
@@ -48,8 +49,14 @@ const PostCard = ({item, onDelete}) => {
       </UserInfo>
       <PostText>{item.post}</PostText>
       {item.postImg != null ? (
-        <PostImg source={{uri: item.postImg}} />
+        <ProgressiveImage
+          defaultImageSource={require('../assets/default-img.jpg')}
+          source={{uri: item.postImg}}
+          style={{width: '100%', height: 250}}
+          resizeMode="cover"
+        />
       ) : (
+        // <PostImg source={{uri: item.postImg}} />
         <Divider />
       )}
       {/* <PostImg source={require('../assets/posts/post-img-2.jpg')} /> */}

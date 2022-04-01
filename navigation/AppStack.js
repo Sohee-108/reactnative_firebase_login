@@ -87,7 +87,13 @@ const FeedStack = ({navigation}) => (
 
 const MessageStack = ({navigation}) => (
   <Stack.Navigator>
-    <Stack.Screen name="Messages" component={MessagesScreen} />
+    <Stack.Screen
+      name="Messages"
+      component={MessagesScreen}
+      options={{
+        headerShown: false,
+      }}
+    />
     <Stack.Screen
       name="Chat"
       component={ChatScreen}
