@@ -1,6 +1,7 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {TouchableOpacity} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {AuthContext} from '../navigation/AuthProvider';
+import firestore from '@react-native-firebase/firestore';
 import moment from 'moment';
 
 import {
@@ -18,9 +19,14 @@ import {
   Divider,
 } from '../styles/FeedStyles';
 import ProgressiveImage from './ProgressiveImage';
+import {AuthContext} from '../navigation/AuthProvider';
 
-const PostCard = ({item, onDelete}) => {
+const PostCard = ({item, onDelete, onPress}) => {
   const {user} = useContext(AuthContext);
+  const [userData, setUserData] = useState(null);
+
+  likeIcon = item.liked ? 'heart' : 'heart-outline';
+  likeIconColor = item.liked ? '#2e64e5' : '#333';
 
   if (item.likes == 1) {
     likeText = '1 Like';
@@ -38,12 +44,41 @@ const PostCard = ({item, onDelete}) => {
     commentText = 'Comment';
   }
 
+  const getUser = async () => {
+    await firestore()
+      .collection('users')
+      .doc(item.userId)
+      .get()
+      .then(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          console.log('User Data', documentSnapshot.data());
+          setUserData(documentSnapshot.data());
+        }
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
-    <Card>
+    <Card key={item.id}>
       <UserInfo>
-        <UserImg source={{uri: item.userImg}} />
+        <UserImg
+          source={{
+            uri: userData
+              ? userData.userImg ||
+                'https://lh5.googleusercontent.com/-b0PKyNuQv5s/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclxAM4M1SCBGAO7Rp-QP6zgBEUkOQ/s96-c/photo.jpg'
+              : 'https://lh5.googleusercontent.com/-b0PKyNuQv5s/AAAAAAAAAAI/AAAAAAAAAAA/AMZuuclxAM4M1SCBGAO7Rp-QP6zgBEUkOQ/s96-c/photo.jpg',
+          }}
+        />
         <UserInfoText>
-          <UserName>{item.userName}</UserName>
+          <TouchableOpacity onPress={onPress}>
+            <UserName>
+              {userData ? userData.fname || 'Test' : 'Test'}{' '}
+              {userData ? userData.lname || 'User' : 'User'}
+            </UserName>
+          </TouchableOpacity>
           <PostTime>{moment(item.postTime.toDate()).fromNow()}</PostTime>
         </UserInfoText>
       </UserInfo>
@@ -56,10 +91,8 @@ const PostCard = ({item, onDelete}) => {
           resizeMode="cover"
         />
       ) : (
-        // <PostImg source={{uri: item.postImg}} />
         <Divider />
       )}
-      {/* <PostImg source={require('../assets/posts/post-img-2.jpg')} /> */}
       <InteractionWrapper>
         <Interaction active={item.liked}>
           <InteractionText active={item.liked}>{likeText}</InteractionText>
